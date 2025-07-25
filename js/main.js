@@ -14,7 +14,7 @@ function showPage(pageId) {
 }
 
 function trackClick(action) {
-    // 数据跟踪功能
+    // 数据跟踪功能 - 现在集成Google Analytics
     const trackingData = {
         action: action,
         timestamp: new Date().toISOString(),
@@ -28,13 +28,14 @@ function trackClick(action) {
     // 控制台输出（开发测试用）
     console.log('Tracking Event:', trackingData);
     
-    // 这里可以集成Google Analytics或其他分析工具
-    // 示例：
-    // gtag('event', action, {
-    //     'event_category': 'engagement',
-    //     'event_label': action,
-    //     'custom_parameters': trackingData
-    // });
+    // Google Analytics 4 事件跟踪
+    if (typeof gtag !== 'undefined') {
+        gtag('event', action, {
+            'event_category': 'engagement',
+            'event_label': action,
+            'custom_parameters': trackingData
+        });
+    }
     
     // 或者发送到自己的分析服务
     // fetch('/api/track', {

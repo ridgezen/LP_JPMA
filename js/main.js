@@ -72,3 +72,32 @@ window.addEventListener('scroll', function() {
         }
     }
 });
+
+// 移动端菜单功能
+function toggleMobileMenu() {
+    const mobileNav = document.querySelector('.mobile-nav-links');
+    const hamburger = document.querySelector('.hamburger');
+    const closeIcon = document.querySelector('.close');
+    
+    mobileNav.classList.toggle('active');
+    
+    if (mobileNav.classList.contains('active')) {
+        hamburger.style.display = 'none';
+        closeIcon.style.display = 'block';
+        trackClick('mobile_menu_open');
+    } else {
+        hamburger.style.display = 'block';
+        closeIcon.style.display = 'none';
+        trackClick('mobile_menu_close');
+    }
+}
+
+function closeMobileMenu() {
+    const mobileNav = document.querySelector('.mobile-nav-links');
+    const hamburger = document.querySelector('.hamburger');
+    const closeIcon = document.querySelector('.close');
+    
+    mobileNav.classList.remove('active');
+    hamburger.style.display = 'block';
+    closeIcon.style.display = 'none';
+}

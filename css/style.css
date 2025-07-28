@@ -28,6 +28,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
+    position: relative;
 }
 
 .nav-content {
@@ -312,12 +313,16 @@ body {
         font-size: 2rem;
     }
     
+    .nav-content {
+        gap: 1rem;
+    }
+    
     .nav-links {
         display: none;
     }
     
     .mobile-menu-toggle {
-        display: block;
+        display: block !important;
     }
     
     .features {

@@ -8,6 +8,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
     line-height: 1.6;
     color: #333;
+    background: white;
 }
 
 .header {
@@ -119,6 +120,7 @@ body {
     color: #1e3c72;
 }
 
+/* 我们的专业解决方案 - 保持原有卡片布局 */
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -133,10 +135,12 @@ body {
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     text-align: center;
     transition: transform 0.3s;
+    border: 1px solid #f0f4f8;
 }
 
 .feature:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .feature-icon {
@@ -147,6 +151,199 @@ body {
 .feature h3 {
     color: #1e3c72;
     margin-bottom: 1rem;
+}
+
+/* 为什么选择我们 - 横向时间线布局 */
+.why-choose-us {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 4rem 2rem;
+    margin: 4rem -2rem;
+    border-radius: 20px;
+}
+
+.why-choose-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    position: relative;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    position: relative;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-icon {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 8px 25px rgba(30, 60, 114, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-content {
+    flex: 1;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+    transform: translateY(-50%);
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+    left: -30px;
+    border-right-color: white;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    right: -30px;
+    border-left-color: white;
+}
+
+.timeline-content h3 {
+    color: #1e3c72;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.timeline-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline-content li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.timeline-content li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #ff6b35;
+    font-weight: bold;
+}
+
+/* 服务内容 - 分层卡片布局 */
+.services-section {
+    background: white;
+    padding: 4rem 0;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    perspective: 1000px;
+}
+
+.service-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+    transition: all 0.4s ease;
+    transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 25px 50px rgba(102, 126, 234, 0.4);
+}
+
+.service-card:nth-child(2) {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    box-shadow: 0 15px 35px rgba(240, 147, 251, 0.3);
+}
+
+.service-card:nth-child(2):hover {
+    box-shadow: 0 25px 50px rgba(240, 147, 251, 0.4);
+}
+
+.service-card:nth-child(3) {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    box-shadow: 0 15px 35px rgba(79, 172, 254, 0.3);
+}
+
+.service-card:nth-child(3):hover {
+    box-shadow: 0 25px 50px rgba(79, 172, 254, 0.4);
+}
+
+.service-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    text-align: center;
+}
+
+.service-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.service-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.service-card li {
+    padding: 0.8rem 0;
+    padding-left: 2rem;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.service-card li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    color: rgba(255,255,255,0.8);
 }
 
 .pain-points {
@@ -186,7 +383,7 @@ body {
 }
 
 .footer {
-    background: #1e3c72;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: white;
     padding: 2rem;
 }
@@ -257,5 +454,27 @@ body {
     .footer-content {
         flex-direction: column;
         text-align: center;
+    }
+    
+    /* 移动端优化 */
+    .timeline-item {
+        flex-direction: column !important;
+        text-align: center;
+    }
+    
+    .timeline-item:nth-child(even) {
+        flex-direction: column !important;
+    }
+    
+    .timeline-content::before {
+        display: none;
+    }
+    
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card:hover {
+        transform: translateY(-5px);
     }
 }
